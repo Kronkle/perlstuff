@@ -16,4 +16,11 @@ my @mash2 = <$fh2>;
 close($fh2);
 
 my @mashed = (@mash1, "\n", @mash2);
-print @mashed;
+
+#Create a new file and add the contents of firstFile and secondFile
+my $newFile = "newFile.txt";
+open(my $fh3, '>', "$newFile") or die "can't create $newFile: $!";
+print $fh3 @mashed;
+close($fh3);
+
+
